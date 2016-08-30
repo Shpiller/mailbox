@@ -22,6 +22,24 @@ module.exports = {
             NODE_ENV: JSON.stringify(NODE_ENV)
         }),
     ],
+    module: {
+
+        loaders: [
+            {
+                test: /\.js$/,
+                loader: 'babel?presets[]=es2015'
+            },
+            {
+                test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+                loader: 'file?name=[path][name].[ext]?[hash]'
+            },
+            {
+                test: /\.scss$/,
+                loaders: ["style", "css", "sass"]
+            }
+        ]
+
+    },
 };
 
 if (NODE_ENV == 'development') {
