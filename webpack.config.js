@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     context: __dirname + "/app",
     entry: {
-        app: ['./app']
+        app: './app'
     },
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -26,13 +26,6 @@ module.exports = {
 };
 
 if (NODE_ENV == 'development') {
-
-    module.exports.entry.app.unshift('webpack/hot/dev-server');
-    module.exports.entry.app.unshift('webpack-dev-server/client?http://0.0.0.0:3001');
-
-    module.exports.plugins.push(
-        new webpack.HotModuleReplacementPlugin()
-    );
 
     module.exports.devServer = {
         stats: 'errors-only',
