@@ -17,7 +17,6 @@ module.exports = {
         filename: "bundle.js",
         library: "bundle"
     },
-    devtool: "#inline-source-map",
     plugins: [
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
@@ -26,6 +25,8 @@ module.exports = {
 };
 
 if (NODE_ENV == 'development') {
+
+    module.exports.devtool = "#inline-source-map";
 
     module.exports.devServer = {
         stats: 'errors-only',
