@@ -3,7 +3,7 @@
 
 **Github pages:**
 
-<a href="https://shpiller.github.io/mailbox/" target="_blank">https://shpiller.github.io/mailbox/</a>
+https://shpiller.github.io/mailbox/
 <hr/>
 
 **Development:** 
