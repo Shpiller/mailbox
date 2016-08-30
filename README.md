@@ -1,8 +1,10 @@
 <h3>MailBox. Angular v1.5 application</h3>
+<hr/>
 
 **Github pages:**
 
-https://shpiller.github.io/mailbox/
+<a href="https://shpiller.github.io/mailbox/" target="_blank">https://shpiller.github.io/mailbox/</a>
+<hr/>
 
 **Development:** 
 <ul>
