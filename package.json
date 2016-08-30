@@ -1,26 +1,33 @@
 {
-    "name": "mailbox",
-    "version": "0.0.1",
-    "description": "angular project",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "./node_modules/.bin/webpack"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Shpiller/mailbox.git"
-    },
-    "keywords": [
-        "angular"
-    ],
-    "author": "Alex Resh",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/Shpiller/mailbox/issues"
-    },
-    "homepage": "https://github.com/Shpiller/mailbox#readme",
-    "dependencies": {
-        "webpack": "^1.13.2"
-    }
+  "name": "mailbox",
+  "version": "0.0.1",
+  "description": "angular project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
+    "start": "webpack-dev-server",
+    "prebuild": "npm install",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shpiller/mailbox.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "Alex Resh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shpiller/mailbox/issues"
+  },
+  "homepage": "https://github.com/Shpiller/mailbox#readme",
+  "dependencies": {
+    "html-webpack-plugin": "^2.22.0",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.15.0"
+  }
 }
