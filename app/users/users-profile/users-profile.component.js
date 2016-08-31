@@ -6,7 +6,7 @@ import appSettings from '../../app.settings';
 class Controller {
 
     /** @ngInject */
-    constructor($scope, $cookies, UsersRestService, UsersAuthService, $state) {
+    constructor($scope, $cookies, $state, UsersRestService, UsersAuthService) {
 
         this._UsersRestService = UsersRestService;
         this._UsersAuthService = UsersAuthService;

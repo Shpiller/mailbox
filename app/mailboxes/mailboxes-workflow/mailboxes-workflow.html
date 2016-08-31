@@ -35,7 +35,10 @@
         </button>
 
         <ul class="inbox-sections list-unstyled">
-            <li class="active">
+            <li ng-repeat="mailbox in $ctrl.userMailboxes" class="cursor-pointer">
+                {{mailbox.type}}
+            </li>
+            <!--li class="active">
                 Inbox (100)
             </li>
             <li>Sent Mail</li>
@@ -45,7 +48,7 @@
             <li>All Mail</li>
             <li class="pending">
                 Spam (1)
-            </li>
+            </li-->
         </ul>
     </div><!-- sidebar -->
 

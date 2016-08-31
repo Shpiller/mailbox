@@ -16,9 +16,9 @@ class Controller {
         this._UsersAuthService.signup(this.user)
             .then(user => {
 
-                this._MailboxesRestService.add({title: this.user.email + ";inbox"})
+                this._MailboxesRestService.add({title: this.user.email + ";Inbox"})
                     .then(() => {
-                        this._MailboxesRestService.add({title: this.user.email + ";outbox"})
+                        this._MailboxesRestService.add({title: this.user.email + ";Outbox"})
                             .then(() => {
                                 this._$state.go('mailboxes.workflow');
                             });
