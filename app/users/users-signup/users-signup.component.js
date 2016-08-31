@@ -14,7 +14,7 @@ class Controller {
     signup() {
         this._UsersAuthService.signup(this.user)
             .then(user => {
-                this._$state.go('mailboxes');
+                this._$state.go('mailboxes.workflow');
             });
     };
 }
