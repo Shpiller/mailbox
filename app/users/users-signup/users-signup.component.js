@@ -19,11 +19,7 @@ class Controller {
     signup() {
         this._UsersAuthService.signup(this.user)
             .then(user => {
-                if (user) {
-                    this._$state.go('mailboxes');
-                } else {
-                    alert('no user find');
-                }
+                this._$state.go('mailboxes');
             });
     };
 

@@ -1,4 +1,4 @@
-export default class AuthService {
+export default class UsersAuthService {
 
     /** @ngInject */
     constructor($cookies, UsersRestService) {
@@ -15,7 +15,7 @@ export default class AuthService {
                 });
 
                 if (user) {
-                    this._$cookies.loginId = user._id;
+                    this._$cookies.put('loginId', user._id);
                 }
 
                 return user;
@@ -25,16 +25,17 @@ export default class AuthService {
     signup(user) {
         return this._UsersRestService.add(user)
             .then((user) => {
-                this._$cookies.loginId = user._id;
+                this._$cookies.put('loginId', user._id);
+                return user;
             });
     }
 
     isAuth() {
-        return this._$cookies.loginId;
+        return this._$cookies.get('loginId');
     }
 
     logout() {
-        delete this._$cookies.loginId;
+        delete this._$cookies.remove('loginId');
     }
 }
 

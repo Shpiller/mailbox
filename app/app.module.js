@@ -12,7 +12,7 @@ angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
         $stateProvider
             .state('mailboxes', {
                 url: '/',
-                template: '<mailboxes></mailboxes>'
+                template: '<mailboxes-workflow></mailboxes-workflow>'
             })
             .state('signin', {
                 url: '/signin',
