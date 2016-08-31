@@ -1,11 +1,11 @@
-import template from './signin.html';
-import './signin.scss';
+import template from './users-signin.html';
+import './users-signin.scss';
 
 class Controller {
 
     /** @ngInject */
-    constructor(AuthService, $state) {
-        this._AuthService = AuthService;
+    constructor(UsersAuthService, $state) {
+        this._UsersAuthService = UsersAuthService;
         this._$state = $state;
 
         this.form = {
@@ -15,7 +15,7 @@ class Controller {
     }
 
     signin() {
-        this._AuthService.signin(this.form.email, this.form.birthdate)
+        this._UsersAuthService.signin(this.form.email, this.form.birthdate)
             .then(user => {
                 if (user) {
                     this._$state.go('mailboxes');

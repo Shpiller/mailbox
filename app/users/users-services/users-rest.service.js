@@ -1,6 +1,6 @@
 import RestService from '../../services/rest.service';
 
-export default class UserService extends RestService {
+export default class UsersRestService extends RestService {
 
     /** @ngInject */
     constructor($http) {

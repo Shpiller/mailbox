@@ -16,14 +16,14 @@ angular.module(appConfig.moduleName, ['ui.router', 'ngCookies'])
             })
             .state('signin', {
                 url: '/signin',
-                template: '<signin></signin>'
+                template: '<users-signin></users-signin>'
             })
             .state('signup', {
                 url: '/signup',
-                view: '<signup></signup>'
+                view: '<users-signup></users-signup>'
             });
     })
-    .run(function ($rootScope, AuthService, $state) {
+    .run(function ($rootScope, UsersAuthService, $state) {
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
             console.log('$stateChangeStart');
@@ -31,7 +31,7 @@ angular.module(appConfig.moduleName, ['ui.router', 'ngCookies'])
 
             if (toState.name !== 'signin' &&
                 toState.name !== 'signup' &&
-                !AuthService.isAuth()) {
+                !UsersAuthService.isAuth()) {
 
                 event.preventDefault();
                 $state.go('signin');

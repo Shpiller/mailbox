@@ -1,13 +1,13 @@
 export default class AuthService {
 
     /** @ngInject */
-    constructor($cookies, UserService) {
+    constructor($cookies, UsersRestService) {
         this._$cookies = $cookies;
-        this._UserService = UserService;
+        this._UsersRestService = UsersRestService;
     }
 
     signin(email, birthdate) {
-        return this._UserService.getAll()
+        return this._UsersRestService.getAll()
             .then(users => {
                 const user = users.find(user => {
                     return user.email === email
@@ -23,7 +23,7 @@ export default class AuthService {
     }
 
     signup(user) {
-        return this._UserService.add(user)
+        return this._UsersRestService.add(user)
             .then((user) => {
                 this._$cookies.loginId = user._id;
             });

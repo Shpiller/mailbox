@@ -1,13 +1,13 @@
 import appConfig from '../app.config';
 
-import AuthServerice from './services/auth.service';
-import UserServerice from './services/user.service';
+import UsersAuthService from './users-services/users-auth.service';
+import UsersRestService from './users-services/users-rest.service';
 
-import signinComponent from './signin/signin.component';
+import usersSigninComponent from './users-signin/users-signin.component';
 
 angular.module(appConfig.moduleName)
-    .service('AuthService', AuthServerice)
-    .service('UserService', UserServerice)
-    .component('signin', signinComponent);
+    .service('UsersAuthService', UsersAuthService)
+    .service('UsersRestService', UsersRestService)
+    .component('usersSignin', usersSigninComponent);
 
 
