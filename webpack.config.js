@@ -27,7 +27,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.js$/,
-                exclude: 'node_modules',
+                exclude: /(node_modules)/,
                 loader: 'babel?presets[]=es2015'
             },
             {
@@ -37,7 +37,11 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loaders: ["style", "css", "sass"]
-            }
+            },
+            {
+                test: /\.html$/,
+                loaders: ['ngtemplate', 'html']
+            },
         ]
 
     },
