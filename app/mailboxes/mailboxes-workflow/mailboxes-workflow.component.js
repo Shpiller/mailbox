@@ -23,6 +23,14 @@ class Controller {
         this._UsersAuthService.logout();
         this._$state.go('signin');
     }
+
+    gohome() {
+        this._$state.go('mailboxes');
+    }
+
+    editProfile() {
+        this._$state.go('profile');
+    }
 }
 
 export default {

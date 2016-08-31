@@ -21,6 +21,10 @@ angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
             .state('signup', {
                 url: '/signup',
                 template: '<users-signup></users-signup>'
+            })
+            .state('profile', {
+                url: '/profile',
+                template: '<users-profile></users-profile>'
             });
     })
     .run(function ($rootScope, UsersAuthService, $state) {
