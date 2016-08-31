@@ -2,7 +2,7 @@
 
 <header class="row">
     <div class="logo col-sm-2 cursor-pointer" ng-click="$ctrl._$state.go('mailboxes');">
-        <img src="/public/img/google.png" alt="Google">
+        <img src="/public/img/google.png" alt="Google" title="Go home">
     </div><!-- logo -->
 
     <div class="search-bar col-sm-6">
@@ -21,7 +21,7 @@
     <div class="profile col-sm-4">
         <ul class="profile-icons list-inline pull-right">
             <li>
-                <button type="button" class="btn btn-link" ng-click="$ctrl.editProfile()">{{$ctrl.user.fullName}}
+                <button type="button" class="btn btn-link" ng-click="$ctrl.editProfile()" title="Edit profile">{{$ctrl.user.fullName}}
                 </button>
             </li>
             <!--li>
@@ -31,7 +31,7 @@
                 <span class="glyphicon glyphicon-bell"></span>
             </li-->
             <li>
-                <img ng-src="{{$ctrl.user.avatarUrl}}" class="img-circle" ng-click="$ctrl.editProfile()"/>
+                <img ng-src="{{$ctrl.user.avatarUrl}}" class="img-circle" ng-click="$ctrl.editProfile()" title="Edit profile"/>
             </li>
             <li>
                 <button type="button" class="btn btn-link" ng-click="$ctrl.logout()">Logout</button>
