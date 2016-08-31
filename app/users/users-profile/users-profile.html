@@ -1,0 +1,15 @@
+<div class="row users-profile-container">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+        <form class="form-signin" name="registerForm" novalidate>
+            <users-form user="$ctrl.user"></users-form>
+
+            <button class="btn btn-lg btn-success btn-block" type="button" ng-click="$ctrl.save()"
+                    ng-disabled="registerForm.$invalid">Save
+            </button>
+
+            <button class="btn btn-lg btn-default btn-block" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+            <button class="btn btn-lg btn-danger btn-block" type="button" ng-click="$ctrl.delete()">Delete</button>
+        </form>
+    </div>
+</div>
