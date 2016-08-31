@@ -6,6 +6,9 @@ export default class UsersAuthService {
     constructor($cookies, UsersRestService) {
         this._$cookies = $cookies;
         this._UsersRestService = UsersRestService;
+
+        const path = window.location.pathname;
+        this.cookiesOptions = { path };
     }
 
     signin(email, birthdate) {
@@ -17,7 +20,7 @@ export default class UsersAuthService {
                 });
 
                 if (user) {
-                    this._$cookies.put(appSettings.cookieName, user._id);
+                    this._$cookies.put(appSettings.cookieName, user._id, this.cookiesOptions);
                 }
 
                 return user;
@@ -27,7 +30,7 @@ export default class UsersAuthService {
     signup(user) {
         return this._UsersRestService.add(user)
             .then((user) => {
-                this._$cookies.put(appSettings.cookieName, user._id);
+                this._$cookies.put(appSettings.cookieName, user._id, this.cookiesOptions);
                 return user;
             });
     }
@@ -37,7 +40,7 @@ export default class UsersAuthService {
     }
 
     logout() {
-        this._$cookies.remove(appSettings.cookieName);
+        this._$cookies.remove(appSettings.cookieName, this.cookiesOptions);
     }
 }
 

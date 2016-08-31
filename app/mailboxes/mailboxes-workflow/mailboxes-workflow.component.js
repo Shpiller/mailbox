@@ -6,21 +6,17 @@ import appSettings from '../../app.settings';
 class Controller {
 
     /** @ngInject */
-    constructor($rootScope, $cookies, $state, UsersRestService, UsersAuthService) {
+    constructor($cookies, $state, UsersRestService, UsersAuthService) {
 
         this._$cookies = $cookies;
         this._$state = $state;
         this._UsersRestService = UsersRestService;
         this._UsersAuthService = UsersAuthService;
 
-        if($rootScope.user) {
-           this.user = $rootScope.user;
-        }else{
-            UsersRestService.getOne($cookies.get(appSettings.cookieName))
-                .then(user => {
-                    this.user = $rootScope.user = user;
-                });
-        }
+        UsersRestService.getOne($cookies.get(appSettings.cookieName))
+            .then(user => {
+                this.user = user;
+            });
     }
 
     logout() {

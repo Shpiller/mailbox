@@ -20,7 +20,10 @@
 
     <div class="profile col-sm-4">
         <ul class="profile-icons list-inline pull-right">
-            <li>{{$ctrl.user.fullName}}</li>
+            <li>
+                <button type="button" class="btn btn-link" ng-click="$ctrl.editProfile()">{{$ctrl.user.fullName}}
+                </button>
+            </li>
             <!--li>
                 <span class="glyphicon glyphicon-th"></span>
             </li>
@@ -28,7 +31,7 @@
                 <span class="glyphicon glyphicon-bell"></span>
             </li-->
             <li>
-                <img ng-src="{{$ctrl.user.avatarUrl}}" class="img-circle">
+                <img ng-src="{{$ctrl.user.avatarUrl}}" class="img-circle" ng-click="$ctrl.editProfile()"/>
             </li>
             <li>
                 <button type="button" class="btn btn-link" ng-click="$ctrl.logout()">Logout</button>
@@ -112,7 +115,8 @@
                     <div class="clipper">
                         <h3>About your pizza</h3>
                         -
-                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us know because there are a lot of hungry people in the world.</p>
+                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us
+                            know because there are a lot of hungry people in the world.</p>
                     </div>
                 </div><!-- message -->
 
@@ -144,7 +148,8 @@
                     <div class="clipper">
                         <h3>About your pizza</h3>
                         -
-                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us know because there are a lot of hungry people in the world.</p>
+                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us
+                            know because there are a lot of hungry people in the world.</p>
                     </div>
                 </div><!-- message -->
 
@@ -176,7 +181,8 @@
                     <div class="clipper">
                         <h3>About your pizza</h3>
                         -
-                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us know because there are a lot of hungry people in the world.</p>
+                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us
+                            know because there are a lot of hungry people in the world.</p>
                     </div>
                 </div><!-- message -->
 
@@ -207,7 +213,8 @@
                     <div class="clipper">
                         <h3>About your pizza</h3>
                         -
-                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us know because there are a lot of hungry people in the world.</p>
+                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us
+                            know because there are a lot of hungry people in the world.</p>
                     </div>
                 </div><!-- message -->
 
@@ -239,7 +246,8 @@
                     <div class="clipper">
                         <h3>About your pizza</h3>
                         -
-                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us know because there are a lot of hungry people in the world.</p>
+                        <p>We can't deliver your pizza on time. We will be about 50 minutes late. Is that okay? Let us
+                            know because there are a lot of hungry people in the world.</p>
                     </div>
                 </div><!-- message -->
 
