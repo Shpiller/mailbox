@@ -9,13 +9,13 @@ class Controller {
         this._$state = $state;
 
         this.form = {};
-    }    
+    }
 
     signin() {
         this._UsersAuthService.signin(this.form.email, this.form.birthdate)
             .then(user => {
                 if (user) {
-                    this._$state.go('mailboxes');
+                    this._$state.go('mailboxes.workflow');
                 } else {
                     alert('no user find');
                 }

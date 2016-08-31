@@ -11,12 +11,6 @@ class Controller {
         this._UsersRestService = UsersRestService;
         this._UsersAuthService = UsersAuthService;
         this._$state = $state;
-
-        UsersRestService.getOne($cookies.get(appSettings.cookieName))
-            .then(user => {
-                this.user = user;
-            });
-
     }
 
     save() {
@@ -33,6 +27,9 @@ class Controller {
 }
 
 export default  {
+    bindings: {
+        user: '<'
+    },
     templateUrl: template,
     controller: Controller
 }

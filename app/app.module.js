@@ -7,12 +7,21 @@ import appSettings from './app.settings';
 angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
     .config(function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/workflow');
 
         $stateProvider
             .state('mailboxes', {
                 url: '/',
-                template: '<mailboxes-workflow></mailboxes-workflow>'
+                abstract: true,
+                template: '<mailboxes></mailboxes>'
+            })
+            .state('mailboxes.workflow', {
+                url: 'workflow',
+                template: '<mailboxes-workflow user="$ctrl.user"></mailboxes-workflow>'
+            })
+            .state('mailboxes.profile', {
+                url: 'profile',
+                template: '<users-profile user="$ctrl.user"></users-profile>'
             })
             .state('signin', {
                 url: '/signin',
@@ -21,10 +30,6 @@ angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
             .state('signup', {
                 url: '/signup',
                 template: '<users-signup></users-signup>'
-            })
-            .state('profile', {
-                url: '/profile',
-                template: '<users-profile></users-profile>'
             });
     })
     .run(function ($rootScope, UsersAuthService, $state) {
