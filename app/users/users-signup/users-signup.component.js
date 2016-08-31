@@ -9,6 +9,11 @@ class Controller {
         this._$state = $state;
 
         this.user = {};
+
+        const sourcethumbs = 'https://randomuser.me/api/portraits/thumb';
+
+        this.menThumbs = Array.from(Array(5).keys()).map(i => `${sourcethumbs}/men/${i+1}.jpg`);
+        this.womenThumbs = Array.from(Array(5).keys()).map(i => `${sourcethumbs}/women/${i+1}.jpg`);
     }
 
     signup() {
@@ -21,6 +26,11 @@ class Controller {
                 }
             });
     };
+
+    avatarSelect(url) {
+        this.user = this.user || {};
+        this.user.avatarUrl = url;
+    }
 }
 
 export default  {
