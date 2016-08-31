@@ -10,10 +10,14 @@ class Controller {
 
         $scope.$watch('$ctrl.user', (newVal, oldVal) => {
 
-            MailboxesRestService.getAll()
-                .then((mailboxes) => {
-                    this.userMailboxes = mailboxes.filter(mailbox => mailbox.email === newVal.email);
-                });
+            if(newVal){
+                MailboxesRestService.getAll()
+                    .then((mailboxes) => {
+                        this.userMailboxes = mailboxes.filter(mailbox => {
+                            return mailbox.email === newVal.email;
+                        });
+                    });
+            }
         });
     }
 }
