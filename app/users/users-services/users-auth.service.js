@@ -1,3 +1,5 @@
+import appSettings from '../../app.settings';
+
 export default class UsersAuthService {
 
     /** @ngInject */
@@ -15,7 +17,7 @@ export default class UsersAuthService {
                 });
 
                 if (user) {
-                    this._$cookies.put('loginId', user._id);
+                    this._$cookies.put(appSettings.cookieName, user._id);
                 }
 
                 return user;
@@ -25,17 +27,17 @@ export default class UsersAuthService {
     signup(user) {
         return this._UsersRestService.add(user)
             .then((user) => {
-                this._$cookies.put('loginId', user._id);
+                this._$cookies.put(appSettings.cookieName, user._id);
                 return user;
             });
     }
 
     isAuth() {
-        return this._$cookies.get('loginId');
+        return this._$cookies.get(appSettings.cookieName);
     }
 
     logout() {
-        delete this._$cookies.remove('loginId');
+        this._$cookies.remove(appSettings.cookieName);
     }
 }
 

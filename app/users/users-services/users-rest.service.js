@@ -8,28 +8,26 @@ export default class UsersRestService extends RestService {
     }
 
     getAll() {
-        return this._$http.get(this.baseUrl + this.model)
-            .then((response) => {
-                return response.data.map(user => {
+        return super.getAll()
+            .then((users) => {
+                return users.map(user => {
                     user.birthdate = user.birthdate.substr(0, 10);
                     return user;
-                })
+                });
             });
     }
 
     getOne(objectId) {
         return super.getOne(objectId)
-            .then(response => {
-                let user = response.data;
+            .then(user => {
                 user.birthdate = user.birthdate.substr(0, 10);
                 return user;
             });
     }
 
     add(object) {
-        return this._$http.post(this.baseUrl + this.model, object)
-            .then((response) => {
-                let user = response.data;
+        return super.add(object)
+            .then((user) => {
                 user.birthdate = user.birthdate.substr(0, 10);
                 return user;
             });

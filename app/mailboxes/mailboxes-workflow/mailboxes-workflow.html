@@ -1,34 +1,37 @@
 <link rel="stylesheet" href="/public/css/main.css">
 
 <header class="row">
-    <div class="logo col-sm-2">
+    <div class="logo col-sm-2 cursor-pointer" ng-click="$ctrl._$state.go('mailboxes');">
         <img src="/public/img/google.png" alt="Google">
     </div><!-- logo -->
 
     <div class="search-bar col-sm-6">
-        <div class="input-group">
+        <!--div class="input-group">
             <input type="text" class="form-control" placeholder="Search for...">
             <span class="input-group-btn">
               <button class="btn btn-main">
                 <span class="glyphicon glyphicon-search"></span>
               </button>
             </span>
-        </div><!-- /input-group -->
+        </div--><!-- /input-group -->
 
-        <span class="arrow caret"></span>
+        <!--span class="arrow caret"></span-->
     </div><!-- search-bar -->
 
     <div class="profile col-sm-4">
         <ul class="profile-icons list-inline pull-right">
-            <li>Nizar</li>
-            <li>
+            <li>{{$ctrl.user.fullName}}</li>
+            <!--li>
                 <span class="glyphicon glyphicon-th"></span>
             </li>
             <li class="bell">
                 <span class="glyphicon glyphicon-bell"></span>
+            </li-->
+            <li>
+                <img ng-src="{{$ctrl.user.avatarUrl}}" class="img-circle">
             </li>
             <li>
-                <img src="/public/img/profile.jpg" class="img-circle">
+                <button type="button" class="btn btn-link" ng-click="$ctrl.logout()">Logout</button>
             </li>
         </ul>
     </div><!-- profile -->

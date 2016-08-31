@@ -1,5 +1,35 @@
 import template from './mailboxes-workflow.html';
+import './mailboxes-workflow.scss';
+
+import appSettings from '../../app.settings';
+
+class Controller {
+
+    /** @ngInject */
+    constructor($rootScope, $cookies, $state, UsersRestService, UsersAuthService) {
+
+        this._$cookies = $cookies;
+        this._$state = $state;
+        this._UsersRestService = UsersRestService;
+        this._UsersAuthService = UsersAuthService;
+
+        if($rootScope.user) {
+           this.user = $rootScope.user;
+        }else{
+            UsersRestService.getOne($cookies.get(appSettings.cookieName))
+                .then(user => {
+                    this.user = $rootScope.user = user;
+                });
+        }
+    }
+
+    logout() {
+        this._UsersAuthService.logout();
+        this._$state.go('signin');
+    }
+}
 
 export default {
-    templateUrl: template
+    templateUrl: template,
+    controller: Controller
 }
