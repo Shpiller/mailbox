@@ -2,9 +2,9 @@ import 'angular';
 import 'angular-ui-router';
 import 'angular-cookies';
 
-import appConfig from './app.config';
+import appSettings from './app.settings';
 
-angular.module(appConfig.moduleName, ['ui.router', 'ngCookies'])
+angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
     .config(function ($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/');
@@ -12,7 +12,7 @@ angular.module(appConfig.moduleName, ['ui.router', 'ngCookies'])
         $stateProvider
             .state('mailboxes', {
                 url: '/',
-                view: '<mailboxes></mailboxes>'
+                template: '<mailboxes></mailboxes>'
             })
             .state('signin', {
                 url: '/signin',
@@ -20,7 +20,7 @@ angular.module(appConfig.moduleName, ['ui.router', 'ngCookies'])
             })
             .state('signup', {
                 url: '/signup',
-                view: '<users-signup></users-signup>'
+                template: '<users-signup></users-signup>'
             });
     })
     .run(function ($rootScope, UsersAuthService, $state) {

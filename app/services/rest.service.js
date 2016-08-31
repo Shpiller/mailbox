@@ -1,4 +1,4 @@
-import appConfig from '../app.config';
+import appSettings from '../app.settings';
 
 export default class RestService {
 
@@ -6,7 +6,7 @@ export default class RestService {
         this._$http = $http;
 
         this.model = model;
-        this.baseUrl = appConfig.rest.url + `${appConfig.rest.name}/`;
+        this.baseUrl = appSettings.rest.url + `${appSettings.rest.name}/`;
     }
 
     getAll() {

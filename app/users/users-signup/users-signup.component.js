@@ -1,5 +1,5 @@
-import template from './users-signin.html';
-import './users-signin.scss';
+import template from './users-signup.html';
+import './users-signup.scss';
 
 class Controller {
 
@@ -8,11 +8,11 @@ class Controller {
         this._UsersAuthService = UsersAuthService;
         this._$state = $state;
 
-        this.form = {};
-    }    
+        this.user = {};
+    }
 
-    signin() {
-        this._UsersAuthService.signin(this.form.email, this.form.birthdate)
+    signup() {
+        this._UsersAuthService.signup(this.user)
             .then(user => {
                 if (user) {
                     this._$state.go('mailboxes');
