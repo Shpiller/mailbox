@@ -4,8 +4,9 @@ import './users-signup.scss';
 class Controller {
 
     /** @ngInject */
-    constructor(UsersAuthService, $state) {
+    constructor($state, UsersAuthService, MailboxesRestService) {
         this._UsersAuthService = UsersAuthService;
+        this._MailboxesRestService = MailboxesRestService;
         this._$state = $state;
 
         this.user = {};
@@ -14,7 +15,15 @@ class Controller {
     signup() {
         this._UsersAuthService.signup(this.user)
             .then(user => {
-                this._$state.go('mailboxes.workflow');
+
+                this._MailboxesRestService.add({title: this.user.email + ";inbox"})
+                    .then(() => {
+                        this._MailboxesRestService.add({title: this.user.email + ";outbox"})
+                            .then(() => {
+                                this._$state.go('mailboxes.workflow');
+                            });
+                    });
+
             });
     };
 }
