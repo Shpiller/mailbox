@@ -1,0 +1,49 @@
+<div class="container-fluid users-form-container">
+    <div class="form-group">
+        <label for="inputName">Name</label>
+        <input id="inputName" ng-model="$ctrl.user.fullName" class="form-control" required/>
+    </div>
+    <div class="form-group">
+        <label for="inputBirthdate">Birthdate</label>
+        <input id="inputBirthdate" type="text" ng-model="$ctrl.user.birthdate" class="form-control" required
+               pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"/>
+    </div>
+    <div class="form-group">
+        <label for="inputSex">Sex</label>
+        <select id="inputSex" ng-model="$ctrl.user.gender" class="form-control" required>
+            <option value="M">мужской</option>
+            <option value="F">женский</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input id="inputAddress" ng-model="$ctrl.user.address" class="form-control" required/>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input id="inputEmail" type="email" ng-model="$ctrl.user.email" class="form-control" required/>
+    </div>
+    <div class="row">
+        <div class="form-group col col-md-3">
+            <div class="btn-group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-user"></i> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <avatar-menu-item
+                            ng-repeat="url in $ctrl.menThumbs" url="url"
+                            select="$ctrl.avatarSelect(url)"></avatar-menu-item>
+                        <avatar-menu-item
+                            ng-repeat="url in $ctrl.womenThumbs" url="url"
+                            select="$ctrl.avatarSelect(url)"></avatar-menu-item>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col col-md-3">
+            <input type="hidden" ng-model="$ctrl.user.avatarUrl" required/>
+            <img ng-src="{{$ctrl.user.avatarUrl}}"/>
+        </div>
+    </div>
+</div>
