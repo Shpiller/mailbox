@@ -20,10 +20,17 @@ angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
                 template: '<mailboxes-workflow user="$ctrl.user"></mailboxes-workflow>'
             })
             .state('mailboxes.workflow.letters', {
-                url: '/letters/{mailboxId}',
+                url: '/letters?mailboxId',
                 template: '<letters-list mailbox-id="mailboxId"></letters-list>',
                 controller: /** @ngInject */ function($scope, $stateParams) {
                     $scope.mailboxId = $stateParams.mailboxId;
+                }
+            })
+            .state('mailboxes.workflow.letter', {
+                url: '/letter?letterId',
+                template: '<letters-full letter-id="letterId"></letters-full>',
+                controller: /** @ngInject */ function($scope, $stateParams) {
+                    $scope.letterId = $stateParams.letterId;
                 }
             })
             .state('mailboxes.workflow.letters-form', {
