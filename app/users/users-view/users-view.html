@@ -20,7 +20,7 @@
                         </tr>
                         <tr>
                             <th>Пол</th>
-                            <td>{{$ctrl.user.gender}}</td>
+                            <td>{{($ctrl.user.gender === 'M' ? 'М' : 'Ж')}}</td>
                         </tr>
                         <tr>
                             <th>Адрес</th>
@@ -31,8 +31,9 @@
                             <td>{{$ctrl.user.email}}</td>
                         </tr>
                     </table>
-                    <div class="btn-group" role="group" ng-if="$ctrl.mode !== 'list'">
-                        <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">Cancel</button>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-success" ng-click="$ctrl.newletter()">Send mail</button>
+                        <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()" ng-if="$ctrl.mode !== 'list'">Cancel</button>
                     </div>
                 </div>
             </div>

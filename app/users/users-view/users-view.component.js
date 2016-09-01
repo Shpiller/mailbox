@@ -3,7 +3,9 @@ import './users-view.scss';
 
 class Controller {
     /** @ngInject */
-    constructor(UsersRestService) {
+    constructor($state, UsersRestService) {
+
+        this._$state = $state;
 
         if (!this.user) {
             UsersRestService.getOne(this.userId)
@@ -11,6 +13,10 @@ class Controller {
                     this.user = user;
                 });
         }
+    }
+
+    newletter() {
+        this._$state.go('mailboxes.workflow.letters-form', {to: this.user.email});
     }
 
     cancel() {

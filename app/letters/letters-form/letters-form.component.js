@@ -14,7 +14,10 @@ class Controller {
         $scope.$watch('$ctrl.userMailboxes', (newVal, oldVal) => {
             if (newVal) {
                 this.outbox = newVal.find(mailbox => mailbox.type === appSettings.mailboxTypes.outbox);
-                this.letter = {mailbox: this.outbox._id};
+                this.letter = {
+                    mailbox: this.outbox._id,
+                    to: this.to ? this.to : ''
+                };
             }
         });
     }
@@ -53,7 +56,8 @@ class Controller {
 export default {
     bindings: {
         user: '<',
-        userMailboxes: '<'
+        userMailboxes: '<',
+        to: '<'
     },
     templateUrl: template,
     controller: Controller
