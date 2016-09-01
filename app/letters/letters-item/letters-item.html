@@ -1,26 +1,26 @@
-<li class="email-item row cursor-pointer"
-    ui-sref="mailboxes.workflow.letter({letterId: '{{$ctrl.letter._id}}'})">
+<li class="email-item row">
     <div class="people col-sm-3">
-        <ul class="mail-icons list-inline" ng-if="$ctrl.letter.user">
+        <ul class="mail-icons list-inline cursor-pointer" ng-if="$ctrl.letter.user">
             <!--li>
                 <input type="checkbox" class="mail-select">
             </li-->
             <li>
                 <img ng-src="{{$ctrl.letter.user.avatarUrl}}" class="img-circle cursor-pointer"
-                     ng-click="$ctrl.viewProfile($ctrl.letter.user)" title="View profile"/>
+                     ng-click="$ctrl.viewProfile()" title="View profile"/>
             </li>
             <li>
-                <span class="people-names" ng-click="$ctrl.viewProfile($ctrl.letter.user)" title="View profile">
+                <span class="people-names" ng-click="$ctrl.viewProfile()" title="View profile">
                   {{$ctrl.letter.to}}
                 </span>
             </li>
         </ul>
-        <span class="people-names" ng-if="!$ctrl.letter.user">
+        <span class="people-names" ng-if="!$ctrl.letter.user" >
           {{$ctrl.letter.to}}
         </span>
     </div><!-- people -->
 
-    <div class="message col-sm-9">
+    <div class="message col-sm-9 cursor-pointer"
+         ui-sref="mailboxes.workflow.letter({letterId: '{{$ctrl.letter._id}}'})" title="View letter">
         <div class="clipper">
             <h3>{{$ctrl.letter.subject}}</h3>
             -

@@ -6,8 +6,6 @@ class Controller {
     /** @ngInject */
     constructor(LettersRestService) {
 
-        this._LettersRestService = LettersRestService;
-
         LettersRestService.getOne(this.letterId)
             .then(letter => {
                 this.letter = letter;

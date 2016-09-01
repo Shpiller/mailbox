@@ -1,0 +1,41 @@
+<div class="row users-view-container">
+    <div class="col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{$ctrl.user.fullName}}</h3>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">
+                    <img ng-src="{{$ctrl.user.avatarUrl}}"/>
+                </div>
+                <div class="col-xs-10">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>ФИО</th>
+                            <td>{{$ctrl.user.fullName}}</td>
+                        </tr>
+                        <tr>
+                            <th>Дата рождения</th>
+                            <td>{{$ctrl.user.birthdate}}</td>
+                        </tr>
+                        <tr>
+                            <th>Пол</th>
+                            <td>{{$ctrl.user.gender}}</td>
+                        </tr>
+                        <tr>
+                            <th>Адрес</th>
+                            <td>{{$ctrl.user.address}}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{$ctrl.user.email}}</td>
+                        </tr>
+                    </table>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
