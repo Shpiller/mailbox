@@ -65,6 +65,14 @@ angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
                 event.preventDefault();
                 $state.go('signin');
             }
+
+            if ((toState.name === 'signin' ||
+                toState.name === 'signup') &&
+                UsersAuthService.isAuth()) {
+
+                event.preventDefault();
+                $state.go('mailboxes.workflow', {}, {reload: true});
+            }
         });
 
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, reject) {

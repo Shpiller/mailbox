@@ -6,8 +6,9 @@ import appSettings from '../../app.settings';
 class Controller {
 
     /** @ngInject */
-    constructor($state, UsersAuthService, MailboxesRestService) {
+    constructor($state, UsersAuthService, UsersRestService, MailboxesRestService) {
         this._UsersAuthService = UsersAuthService;
+        this._UsersRestService = UsersRestService;
         this._MailboxesRestService = MailboxesRestService;
         this._$state = $state;
 
@@ -18,19 +19,30 @@ class Controller {
 
         this.disabled = true;
 
-        this._UsersAuthService.signup(this.user)
-            .then(user => {
+        this._UsersRestService.getAll()
+            .then(users => {
 
-                this._MailboxesRestService.add({title: `${this.user.email};${appSettings.mailboxTypes.inbox}`})
-                    .then(() => {
-                        this._MailboxesRestService.add({title: `${this.user.email};${appSettings.mailboxTypes.outbox}`})
-                            .then(() => {
-                                this._$state.go('mailboxes.workflow');
-                            });
-                    });
+                const user = users.find(user => user.email === this.user.email);
 
-            })
-            .catch(() => this.disabled = false);
+                if (user) {
+                    alert('Such email already exists');
+                    this.disabled = false
+                } else {
+                    this._UsersAuthService.signup(this.user)
+                        .then(user => {
+
+                            this._MailboxesRestService.add({title: `${this.user.email};${appSettings.mailboxTypes.inbox}`})
+                                .then(() => {
+                                    this._MailboxesRestService.add({title: `${this.user.email};${appSettings.mailboxTypes.outbox}`})
+                                        .then(() => {
+                                            this._$state.go('mailboxes.workflow');
+                                        });
+                                });
+
+                        })
+                        .catch(() => this.disabled = false);
+                }
+            });
     };
 }
 

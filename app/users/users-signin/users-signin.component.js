@@ -17,7 +17,7 @@ class Controller {
                 if (user) {
                     this._$state.go('mailboxes.workflow');
                 } else {
-                    alert('no user find');
+                    alert('No user found, Please sign up');
                 }
             });
     };
