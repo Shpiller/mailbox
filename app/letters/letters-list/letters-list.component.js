@@ -5,19 +5,13 @@ import appSettings from '../../app.settings';
 class Controller {
 
     /** @ngInject */
-    constructor(MailboxesRestService, LettersRestService) {
+    constructor(AllRestService) {
 
-        MailboxesRestService.getOne(this.mailboxId)
-            .then(mailbox => {
-                LettersRestService.getAll()
-                    .then(letters => {
-                        if (mailbox.type === appSettings.mailboxTypes.inbox) {
-                            this.letters = letters.filter(letter => letter.to === mailbox.email);
-                        } else {
-                            this.letters = letters.filter(letter => letter.mailbox === mailbox._id);
-                        }
-                    });
-            });
+        AllRestService.getAll()
+            .then(all => {
+                this.mailbox = all.mailboxes.find(mailbox => mailbox._id === this.mailboxId);
+                this.letters = all.letters.filter(letter => letter.mailbox === this.mailbox._id);
+            })
     }
 }
 

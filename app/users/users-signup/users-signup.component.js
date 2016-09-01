@@ -15,6 +15,9 @@ class Controller {
     }
 
     signup() {
+
+        this.disabled = true;
+
         this._UsersAuthService.signup(this.user)
             .then(user => {
 
@@ -26,7 +29,8 @@ class Controller {
                             });
                     });
 
-            });
+            })
+            .catch(() => this.disabled = false);
     };
 }
 

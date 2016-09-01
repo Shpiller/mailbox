@@ -7,7 +7,7 @@
             <users-form user="$ctrl.user"></users-form>
 
             <button class="btn btn-lg btn-success btn-block" type="button" ng-click="$ctrl.signup()"
-                    ng-disabled="registerForm.$invalid">Sign up
+                    ng-disabled="registerForm.$invalid || $ctrl.disabled">Sign up
             </button>
         </form>
     </div>
