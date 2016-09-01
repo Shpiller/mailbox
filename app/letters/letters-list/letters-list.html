@@ -1,7 +1,8 @@
 <ul class="list-unstyled">
     <div class="email-item row unread">
         <div class="col-sm-3">
-            <span>Email</span>
+            <span ng-if="$ctrl.mailbox.type === 'Inbox'">From</span>
+            <span ng-if="$ctrl.mailbox.type === 'Outbox'">To</span>
         </div>
         <div class="col-sm-9">
             <span>Subject - Body</span>
