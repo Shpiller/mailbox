@@ -1,4 +1,5 @@
 import template from './letters-form.html';
+import './letters-form.scss';
 
 import appSettings from '../../app.settings';
 
