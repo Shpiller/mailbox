@@ -1,6 +1,8 @@
 import template from './users-signup.html';
 import './users-signup.scss';
 
+import appSettings from '../../app.settings';
+
 class Controller {
 
     /** @ngInject */

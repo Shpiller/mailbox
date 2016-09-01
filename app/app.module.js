@@ -4,6 +4,8 @@ import 'angular-cookies';
 
 import appSettings from './app.settings';
 
+import AllRestService from './services/all-rest.service';
+
 angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
     .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -88,4 +90,5 @@ angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
             console.log('$stateNotFound');
             console.log(arguments);
         });
-    });
+    })
+    .service('AllRestService', AllRestService);
