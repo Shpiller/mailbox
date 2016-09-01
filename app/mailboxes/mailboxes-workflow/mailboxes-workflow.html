@@ -38,7 +38,8 @@
 
         <ul class="inbox-sections list-unstyled">
             <li ng-repeat="mailbox in $ctrl.userMailboxes" class="cursor-pointer"
-                ui-sref="mailboxes.workflow.letters({mailboxId: '{{mailbox._id}}'})">
+                ui-sref="mailboxes.workflow.letters({mailboxId: '{{mailbox._id}}'})"
+                ui-sref-active="active">
                 {{mailbox.type}}
             </li>
             <!--li class="active">
