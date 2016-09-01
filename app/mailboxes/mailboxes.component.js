@@ -26,7 +26,7 @@ class Controller {
     }
 
     gohome() {
-        this._$state.go('mailboxes.workflow');
+        this._$state.go('mailboxes.workflow', {}, {reload: true});
     }
 
     editProfile() {

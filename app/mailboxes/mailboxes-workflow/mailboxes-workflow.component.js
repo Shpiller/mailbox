@@ -6,16 +6,19 @@ import appSettings from '../../app.settings';
 class Controller {
 
     /** @ngInject */
-    constructor($scope, MailboxesRestService) {
+    constructor($state, $scope, MailboxesRestService) {
 
         $scope.$watch('$ctrl.user', (newVal, oldVal) => {
 
             if(newVal){
                 MailboxesRestService.getAll()
                     .then((mailboxes) => {
-                        this.userMailboxes = mailboxes.filter(mailbox => {
-                            return mailbox.email === newVal.email;
-                        });
+                        this.userMailboxes = mailboxes.filter(mailbox => mailbox.email === newVal.email);
+                        const inbox = this.userMailboxes.find(mailbox => mailbox.type === "Inbox");
+
+                        if ($state.current.name === 'mailboxes.workflow') {
+                            $state.go('mailboxes.workflow.letters', {mailboxId: inbox._id});
+                        }
                     });
             }
         });
