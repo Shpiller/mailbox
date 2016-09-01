@@ -21,7 +21,7 @@ angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
             })
             .state('mailboxes.workflow.letters', {
                 url: '/letters/{mailboxId}',
-                template: '<letters-list mailboxid="mailboxId"></letters-list>',
+                template: '<letters-list mailbox-id="mailboxId"></letters-list>',
                 controller: /** @ngInject */ function($scope, $stateParams) {
                     $scope.mailboxId = $stateParams.mailboxId;
                 }

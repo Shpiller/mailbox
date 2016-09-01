@@ -1,0 +1,27 @@
+<li class="email-item row">
+    <div class="people col-sm-3">
+        <!--ul class="mail-icons list-inline">
+            <li>
+                <input type="checkbox" class="mail-select">
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-star-empty"></span>
+            </li>
+            <li>
+                <span class="glyphicon glyphicon-cutlery"></span>
+            </li>
+        </ul-->
+
+                <span class="people-names">
+                  {{$ctrl.letter.to}}
+                </span>
+    </div><!-- people -->
+
+    <div class="message col-sm-9">
+        <div class="clipper">
+            <h3>{{$ctrl.letter.subject}}</h3>
+            -
+            <p>{{$ctrl.letter.body}}</p>
+        </div>
+    </div><!-- message -->
+</li>

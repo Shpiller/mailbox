@@ -4,5 +4,9 @@ export default {
         name: 'reshalextemp2',
         url: 'https://test-api.javascript.ru/v1/'
     },
-    cookieName: 'loginId'
+    cookieName: 'loginId',
+    mailboxTypes: {
+        inbox: "Inbox",
+        outbox: "Outbox"
+    }
 }

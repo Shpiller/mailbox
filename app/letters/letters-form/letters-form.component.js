@@ -1,5 +1,4 @@
 import template from './letters-form.html';
-import './letters-form.scss';
 
 import appSettings from '../../app.settings';
 
@@ -13,7 +12,7 @@ class Controller {
 
         $scope.$watch('$ctrl.userMailboxes', (newVal, oldVal) => {
             if(newVal){
-                const outbox = newVal.find(mailbox => mailbox.type === "Outbox");
+                const outbox = newVal.find(mailbox => mailbox.type === appSettings.mailboxTypes.outbox);
                 this.letter = {mailbox: outbox._id};
             }
         });

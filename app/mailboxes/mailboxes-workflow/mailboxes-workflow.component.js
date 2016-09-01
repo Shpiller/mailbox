@@ -1,5 +1,4 @@
 import template from './mailboxes-workflow.html';
-import './mailboxes-workflow.scss';
 
 import appSettings from '../../app.settings';
 
@@ -14,7 +13,7 @@ class Controller {
                 MailboxesRestService.getAll()
                     .then((mailboxes) => {
                         this.userMailboxes = mailboxes.filter(mailbox => mailbox.email === newVal.email);
-                        const inbox = this.userMailboxes.find(mailbox => mailbox.type === "Inbox");
+                        const inbox = this.userMailboxes.find(mailbox => mailbox.type === appSettings.mailboxTypes.inbox);
 
                         if ($state.current.name === 'mailboxes.workflow') {
                             $state.go('mailboxes.workflow.letters', {mailboxId: inbox._id});
