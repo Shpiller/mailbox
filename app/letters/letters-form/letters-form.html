@@ -1,0 +1,39 @@
+<form name="letterForm" novalidate>
+    <div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title"></h3>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>To email</th>
+                            <td>
+                                <input type="email" ng-model="$ctrl.letter.to" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Subject</th>
+                            <td>
+                                <input ng-model="$ctrl.letter.subject" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Body</th>
+                            <td>
+                                <textarea ng-model="$ctrl.letter.body" required></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-success" ng-disabled="letterForm.$invalid"
+                                ng-click="$ctrl.save()">Send
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="$ctrl.cancel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
