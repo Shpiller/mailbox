@@ -21,6 +21,10 @@ angular.module(appSettings.moduleName, ['ui.router', 'ngCookies'])
                 url: 'workflow',
                 template: '<mailboxes-workflow user="$ctrl.user"></mailboxes-workflow>'
             })
+            .state('mailboxes.workflow.users', {
+                url: '/users',
+                template: '<users-list></users-list>'
+            })
             .state('mailboxes.workflow.letters', {
                 url: '/letters?mailboxId',
                 template: '<letters-list mailbox-id="mailboxId"></letters-list>',

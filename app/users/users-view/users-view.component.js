@@ -5,10 +5,12 @@ class Controller {
     /** @ngInject */
     constructor(UsersRestService) {
 
-        UsersRestService.getOne(this.userId)
-            .then(user => {
-                this.user = user;
-            });
+        if (!this.user) {
+            UsersRestService.getOne(this.userId)
+                .then(user => {
+                    this.user = user;
+                });
+        }
     }
 
     cancel() {
@@ -17,7 +19,9 @@ class Controller {
 }
 export default  {
     bindings: {
-        userId: '<'
+        userId: '<',
+        user: '<',
+        mode: '@'
     },
     templateUrl: template,
     controller: Controller

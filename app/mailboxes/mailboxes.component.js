@@ -29,6 +29,10 @@ class Controller {
         this._$state.go('mailboxes.workflow', {}, {reload: true});
     }
 
+    showUsers() {
+        this._$state.go('mailboxes.workflow.users');
+    }
+
     editProfile() {
         this._$state.go('mailboxes.profile');
     }

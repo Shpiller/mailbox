@@ -8,6 +8,7 @@ import usersSignupComponent from './users-signup/users-signup.component';
 import usersProfileComponent from './users-profile/users-profile.component';
 import usersFormComponent from './users-form/users-form.component';
 import usersViewComponent from './users-view/users-view.component';
+import usersListComponent from './users-list/users-list.component';
 import avatarMenuItemComponent from './users-form/avatar-menu-item/avatar-menu-item.component';
 
 angular.module(appSettings.moduleName)
@@ -18,5 +19,6 @@ angular.module(appSettings.moduleName)
     .component('usersProfile', usersProfileComponent)
     .component('usersForm', usersFormComponent)
     .component('usersView', usersViewComponent)
+    .component('usersList', usersListComponent)
     .component('avatarMenuItem', avatarMenuItemComponent);
 
